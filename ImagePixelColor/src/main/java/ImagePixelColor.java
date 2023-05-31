@@ -10,10 +10,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.HashMap;
-import java.util.Hashtable;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -35,7 +33,11 @@ public class ImagePixelColor {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createAndShowGUI();
+                try {
+                    createAndShowGUI();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -84,9 +86,52 @@ public class ImagePixelColor {
         return resultImage;
     }
 
+    public static BufferedImage heatmapFromCSV(List<String[]> csvData, BufferedImage baseImage) {
+        Map<Color, Integer> holdingsCountByColor = new HashMap<>();
+
+        // Skip header line
+        for (int i = 1; i < csvData.size(); i++) {
+            String[] row = csvData.get(i);
+
+            // Assuming the color hex string is in column 5 (Hex Id)
+            String hexString = row[5];
+            String formattedHexString = String.format("#%6s", hexString).replace(' ', '0');
+            Color color = Color.decode(formattedHexString);
+
+            holdingsCountByColor.put(color, holdingsCountByColor.getOrDefault(color, 0) + 1);
+        }
+
+        BufferedImage resultImage = new BufferedImage(baseImage.getWidth(), baseImage.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        int maxHoldingsCount = Collections.max(holdingsCountByColor.values());
+        for (int x = 0; x < baseImage.getWidth(); x++) {
+            for (int y = 0; y < baseImage.getHeight(); y++) {
+                Color baseColor = new Color(baseImage.getRGB(x, y));
+                if (holdingsCountByColor.containsKey(baseColor)) {
+                    int holdingsCount = holdingsCountByColor.get(baseColor);
+                    Color newColor = getColorForHoldingsCount(holdingsCount, maxHoldingsCount);
+                    resultImage.setRGB(x, y, newColor.getRGB());
+                }
+            }
+        }
+
+        return resultImage;
+    }
+
+    // Generate a color based on the number of holdings
+    private static Color getColorForHoldingsCount(int holdingsCount, int maxHoldingsCount) {
+        // Define the color ranges for the heatmap
+        Color[] colorRanges = {Color.BLUE, Color.GREEN, Color.YELLOW, Color.ORANGE, Color.RED};
+        int maxRange = colorRanges.length - 1;
+
+        // Calculate the index based on the holdings count relative to the maximum holdings count
+        int index = (int) ((double) holdingsCount / maxHoldingsCount * maxRange);
+        index = Math.min(index, maxRange);
+
+        return colorRanges[index];
+    }
 
 
-    private static void createAndShowGUI() {
+    private static void createAndShowGUI() throws IOException {
         JFrame frame = new JFrame("Image Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -102,6 +147,22 @@ public class ImagePixelColor {
             e.printStackTrace();
             System.exit(1);
         }
+
+        try {
+            // Generate the overlay image
+            BufferedImage holdingsImage = heatmapFromCSV(holdingData, baseImage);
+            // Save the overlay image to a temporary file
+            File tempHoldingsFile = File.createTempFile("holdingsImage", ".png");
+            tempHoldingsFile.deleteOnExit();
+            holdingsMapPath = tempHoldingsFile.getAbsolutePath();
+            System.out.println("Generated file path: " + holdingsMapPath);
+            ImageIO.write(holdingsImage, "png", tempHoldingsFile);
+        } catch (IOException e ) {
+            e.printStackTrace();
+            System.exit(1);
+        }
+
+
 
         ImagePanel imagePanel = new ImagePanel(baseImage, overlayImages.get(19));
 
@@ -126,6 +187,7 @@ public class ImagePixelColor {
             if (regionsButton.isSelected()) {
                 createTransparencyControl(regionsButton, "Regions", imagePanel);
             }
+
         });
         buttonGroup.add(regionsButton);
         buttonPanel.add(regionsButton);
@@ -228,7 +290,12 @@ public class ImagePixelColor {
                     @Override
                     public void windowClosing(WindowEvent e) {
                         dataImportWindow = null;
+                        // Check if the transparency frame is visible and close it
+                        if (transparencyFrame != null && transparencyFrame.isVisible() && (holdingsButton.isSelected() || taxIncomeButton.isSelected()) ) {
+                            transparencyFrame.dispose();
+                        }
                     }
+
                 });
             }
         });
@@ -293,6 +360,7 @@ public class ImagePixelColor {
                 super.setSelected(model, selected);
             } else {
                 clearSelection();
+                transparencyFrame.dispose();
             }
         }
     }
@@ -338,7 +406,8 @@ public class ImagePixelColor {
 
         private void showMatchingData(String hex, Point point) {
             boolean extraDataInUse = false;
-            for (String[] row : extraData) {
+            if(extraData!=null)
+                for (String[] row : extraData) {
                 String csvHex = row[0].trim();
                 // Removing leading zeros
                 csvHex = csvHex.replaceFirst("^0+(?!$)", "");
