@@ -19,13 +19,11 @@ public class ImagePixelColor {
     private static List<String[]> csvData;
     private static List<String[]> holdingData;
     private static BufferedImage baseImage;
-    private static HashMap<Integer, BufferedImage> overlayImages = new HashMap<>();
-    private static boolean isProvinces = false;
-    private static boolean isRegions = false;
     private static BufferedImage regionsImage;
-    private static JRadioButton lastSelected = null;
-
-
+    private static HashMap<Integer, BufferedImage> overlayImages = new HashMap<>();
+    public static float opacity = 1.0f;
+    private static boolean isProvinces = false;
+    private static JFrame transparencyFrame = null;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -41,7 +39,7 @@ public class ImagePixelColor {
 
         try {
             baseImage = ImageIO.read(new File("input2.png"));
-            regionsImage = ImageIO.read(new File("regions.png")); // Load regions image
+            regionsImage = ImageIO.read(new File("regions.png"));
             for (int i = 0; i <= 19; i++) {
                 overlayImages.put(i, ImageIO.read(new File("map" + i + ".png")));
             }
@@ -55,7 +53,7 @@ public class ImagePixelColor {
         ImagePanel imagePanel = new ImagePanel(baseImage, overlayImages.get(19));
 
         JSlider yearSlider = new JSlider(JSlider.HORIZONTAL, 0, 19, 19);
-        yearSlider.setPreferredSize(new Dimension(650, 50));
+        yearSlider.setPreferredSize(new Dimension(600, 50));
         yearSlider.setMajorTickSpacing(1);
         yearSlider.setPaintTicks(true);
         yearSlider.setSnapToTicks(true);
@@ -68,64 +66,33 @@ public class ImagePixelColor {
         }
         yearSlider.setLabelTable(labelTable);
         yearSlider.addChangeListener(e -> {
-            if (isProvinces || isRegions) {
-                return;
-            }
             imagePanel.changeOverlayImage(overlayImages.get(yearSlider.getValue()));
         });
         yearSlider.setBorder(new EmptyBorder(0, 0, 0, 50));
 
+        NoneSelectedButtonGroup buttonGroup = new NoneSelectedButtonGroup();
         JRadioButton provincesButton = new JRadioButton("Provinces");
         provincesButton.addActionListener(e -> {
-            if (provincesButton.equals(lastSelected)) {
-                provincesButton.setSelected(false);
-                lastSelected = null;
-                isProvinces = false;
-                imagePanel.changeOverlayImage(overlayImages.get(yearSlider.getValue()));
-            } else {
-                lastSelected = provincesButton;
-                isProvinces = true;
-                isRegions = false;
-                imagePanel.changeOverlayImage(baseImage);
+            imagePanel.changeRegionsOrProvincesImage(provincesButton.isSelected() ? baseImage : null);
+            if (provincesButton.isSelected()) {
+                createTransparencyControl(provincesButton, "Provinces", imagePanel);
             }
         });
+        buttonGroup.add(provincesButton);
 
         JRadioButton regionsButton = new JRadioButton("Regions");
+
         regionsButton.addActionListener(e -> {
-            if (regionsButton.equals(lastSelected)) {
-                regionsButton.setSelected(false);
-                lastSelected = null;
-                isRegions = false;
-                imagePanel.changeOverlayImage(overlayImages.get(yearSlider.getValue()));
-            } else {
-                lastSelected = regionsButton;
-                isRegions = true;
-                isProvinces = false;
-                imagePanel.changeOverlayImage(regionsImage);
+            imagePanel.changeRegionsOrProvincesImage(regionsButton.isSelected() ? regionsImage : null);
+            if (regionsButton.isSelected()) {
+                createTransparencyControl(regionsButton, "Regions", imagePanel);
             }
         });
-        class NoneSelectedButtonGroup extends ButtonGroup {
-
-            @Override
-            public void setSelected(ButtonModel model, boolean selected) {
-                if (selected) {
-                    super.setSelected(model, selected);
-                } else {
-                    clearSelection();
-                }
-            }
-        }
-
-        NoneSelectedButtonGroup buttonGroup = new NoneSelectedButtonGroup();
-        buttonGroup.add(provincesButton);
         buttonGroup.add(regionsButton);
 
-        JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        buttonsPanel.add(provincesButton);
-        buttonsPanel.add(regionsButton);
-
         JPanel controlsPanel = new JPanel(new BorderLayout());
-        controlsPanel.add(buttonsPanel, BorderLayout.WEST);
+        controlsPanel.add(provincesButton, BorderLayout.WEST);
+        controlsPanel.add(regionsButton, BorderLayout.CENTER);
         controlsPanel.add(yearSlider, BorderLayout.EAST);
 
         frame.add(controlsPanel, BorderLayout.NORTH);
@@ -134,13 +101,49 @@ public class ImagePixelColor {
         frame.setVisible(true);
     }
 
+    private static void createTransparencyControl(JRadioButton button, String title, ImagePanel imagePanel) {
+        if (transparencyFrame == null) {
+            transparencyFrame = new JFrame();
+            transparencyFrame.setSize(200, 100);
+        }
+        JLabel titleLabel = new JLabel(title + " Transparency");
+        titleLabel.setHorizontalAlignment(JLabel.CENTER);
+        JSlider transparencySlider = new JSlider(JSlider.HORIZONTAL, 0, 100, (int) (100*opacity));
+        transparencySlider.setMajorTickSpacing(10);
+        transparencySlider.setPaintTicks(true);
+        transparencySlider.addChangeListener(e -> {
+            opacity = transparencySlider.getValue() / 100.0f;
+            imagePanel.repaint();  // This line is added to repaint the imagePanel when the slider changes
+        });
+        transparencyFrame.getContentPane().removeAll();
+        transparencyFrame.setLayout(new BorderLayout());
+        transparencyFrame.add(titleLabel, BorderLayout.NORTH);
+        transparencyFrame.add(transparencySlider, BorderLayout.CENTER);
+        Point location = button.getLocationOnScreen();
+        transparencyFrame.setLocation(location.x, location.y + 50);
+        transparencyFrame.setSize(200, 100);
+        transparencyFrame.setVisible(true);
+        transparencyFrame.setAlwaysOnTop(true);
+    }
+
+    static class NoneSelectedButtonGroup extends ButtonGroup {
+        @Override
+        public void setSelected(ButtonModel model, boolean selected) {
+            if (selected) {
+                super.setSelected(model, selected);
+            } else {
+                clearSelection();
+            }
+        }
+    }
+
     static class ImagePanel extends JPanel {
         BufferedImage baseImage;
         BufferedImage overlayImage;
+        BufferedImage regionsOrProvincesImage;
         HashMap<String, JFrame> holdingWindows = new HashMap<>();
         JScrollPane holdingListScrollPane;
         JFrame listWindow;
-
 
         public ImagePanel(BufferedImage baseImage, BufferedImage overlayImage) {
             this.baseImage = baseImage;
@@ -168,7 +171,10 @@ public class ImagePixelColor {
             repaint();
         }
 
-
+        public void changeRegionsOrProvincesImage(BufferedImage newRegionsOrProvincesImage) {
+            this.regionsOrProvincesImage = newRegionsOrProvincesImage;
+            repaint();
+        }
 
         private void showMatchingData(String hex, Point point) {
             for (String[] row : csvData) {
@@ -305,8 +311,17 @@ public class ImagePixelColor {
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawImage(baseImage, 0, 0, null);
-            g.drawImage(overlayImage, 0, 0, null);
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.drawImage(baseImage, 0, 0, null);
+            if(overlayImage != null) {
+                g2d.drawImage(overlayImage, 0, 0, null);
+            }
+            if (regionsOrProvincesImage != null) {
+                g2d.setComposite(AlphaComposite.SrcOver.derive(opacity));
+                g2d.drawImage(regionsOrProvincesImage, 0, 0, null);
+            }
+            g2d.dispose();
         }
+
     }
 }
