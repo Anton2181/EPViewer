@@ -7,9 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
@@ -43,8 +41,8 @@ public class ImagePixelColor {
             for (int i = 0; i <= 19; i++) {
                 overlayImages.put(i, ImageIO.read(new File("map" + i + ".png")));
             }
-            csvData = new CSVReader(new FileReader("input3.csv")).readAll();
-            holdingData = new CSVReader(new FileReader("input4.csv")).readAll();
+            csvData = new CSVReader(new InputStreamReader(new FileInputStream("input3.csv"), "UTF-8")).readAll();
+            holdingData = new CSVReader(new InputStreamReader(new FileInputStream("input4.csv"), "UTF-8")).readAll();
         } catch (IOException | CsvException e) {
             e.printStackTrace();
             System.exit(1);
