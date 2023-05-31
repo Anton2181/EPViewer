@@ -14,6 +14,8 @@ import java.util.*;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class ImagePixelColor {
     private static List<String[]> csvData;
@@ -21,9 +23,8 @@ public class ImagePixelColor {
     private static List<String[]> holdingData;
     private static BufferedImage baseImage;
     private static BufferedImage regionsImage;
-    private static HashMap<Integer, BufferedImage> overlayImages = new HashMap<>();
+    private static LinkedHashMap<Integer, BufferedImage> overlayImages = new LinkedHashMap<>(25);
     public static float opacity = 1.0f;
-    private static boolean isProvinces = false;
     private static JFrame transparencyFrame = null;
     private static JFrame dataImportWindow;
     public static boolean provinceDataLoaded=false;
@@ -135,12 +136,11 @@ public class ImagePixelColor {
         JFrame frame = new JFrame("Image Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        overlayImages.put(19, ImageIO.read(new File("map" + 19 + ".png")));
+
         try {
             baseImage = ImageIO.read(new File("input2.png"));
             regionsImage = ImageIO.read(new File("regions.png"));
-            for (int i = 0; i <= 19; i++) {
-                overlayImages.put(i, ImageIO.read(new File("map" + i + ".png")));
-            }
             csvData = new CSVReader(new InputStreamReader(new FileInputStream("input3.csv"), "UTF-8")).readAll();
             holdingData = new CSVReader(new InputStreamReader(new FileInputStream("input4.csv"), "UTF-8")).readAll();
         } catch (IOException | CsvException e) {
@@ -315,7 +315,19 @@ public class ImagePixelColor {
             labelTable.put(i, label);
         }
         yearSlider.setLabelTable(labelTable);
-        yearSlider.addChangeListener(e -> imagePanel.changeOverlayImage(overlayImages.get(yearSlider.getValue())));
+        yearSlider.addChangeListener(e -> {
+            int year = yearSlider.getValue();
+            BufferedImage image = overlayImages.get(year);
+            if (image == null) {
+                try {
+                    image = ImageIO.read(new File("map" + year + ".png"));
+                    overlayImages.put(year, image);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            imagePanel.changeOverlayImage(image);
+        });
         yearSlider.setBorder(new EmptyBorder(0, 0, 0, 50));
 
         controlsPanel.add(buttonPanel, BorderLayout.WEST);
