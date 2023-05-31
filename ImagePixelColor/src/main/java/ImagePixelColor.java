@@ -4,9 +4,7 @@ import com.opencsv.exceptions.CsvException;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,8 +33,9 @@ public class ImagePixelColor {
         try {
             baseImage = ImageIO.read(new File("input2.png"));
             overlayImage = ImageIO.read(new File("input1.png"));
-            csvData = new CSVReader(new FileReader("input3.csv")).readAll();
-            holdingData = new CSVReader(new FileReader("input4.csv")).readAll();
+            csvData = new CSVReader(new InputStreamReader(new FileInputStream("input3.csv"), "UTF-8")).readAll();
+            holdingData = new CSVReader(new InputStreamReader(new FileInputStream("input4.csv"), "UTF-8")).readAll();
+
         } catch (IOException | CsvException e) {
             e.printStackTrace();
             System.exit(1);

@@ -2229,8 +2229,8 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,8B4,Pogosmische,Lithuania,Oka
 ,8B5,Rheine,Münster,Westphalia
 ,8B6,Steinfurt,Bentheim-Steinfurt,Westphalia
-,8B7,Volkonskas,Muscovy,Mstislavlis
-,8B8,,Muscovy,Černigovas
+,8B7,Volkonskas,Lithuania,Mstislavlis
+,8B8,,Lithuania,Černigovas
 ,8B9,Münster,Münster,Westphalia
 ,8BA,Telgte,Münster,Westphalia
 ,8BB,Tecklenburg,Tecklenburg,Westphalia
@@ -2298,7 +2298,7 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,8F9,Göttingen,Brunswick-Calenberg,Hessen
 ,8FA,Northeim,Brunswick-Calenberg,Lower Saxony
 ,8FB,Höxter,Corvey,Westphalia
-,8FC,,Muscovy,Černigovas
+,8FC,,Lithuania,Černigovas
 ,8FD,Aerzen,Hildesheim,Lower Saxony
 ,8FE,Brakel,Brakel,Westphalia
 ,8FF,Driburg,Paderborn,Westphalia
@@ -3115,52 +3115,52 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,C2A,Viborg,Sweden,Finland
 ,C2B,,Sweden,Finland
 ,C2C,,Sweden,Finland
-,C2D,,Muscovy,Finland
+,C2D,,Sweden,Finland
 ,C2E,,Sweden,Finland
-,C2F,,Muscovy,Finland
-,C30,,Muscovy,Finland
+,C2F,,Sweden,Finland
+,C30,,Sweden,Finland
 ,C31,,Sweden,Finland
-,C32,,Muscovy,Ingria
-,C33,,Muscovy,Ingria
-,C34,,Muscovy,Ingria
-,C35,,Muscovy,Ingria
-,C36,,Muscovy,Ingria
-,C37,,Muscovy,Ingria
-,C38,,Muscovy,Ingria
-,C39,,Muscovy,Ingria
-,C3A,,Muscovy,Ingria
-,C3B,,Muscovy,Ingria
-,C3C,,Muscovy,Ingria
-,C3D,,Muscovy,Ingria
-,C3E,,Muscovy,Ingria
+,C32,,Riga (C),Ingria
+,C33,,Sweden,Ingria
+,C34,,Dorpat,Ingria
+,C35,,Riga,Ingria
+,C36,,Riga,Ingria
+,C37,,Ösel–Wiek,Ingria
+,C38,,Courland,Ingria
+,C39,,Courland,Ingria
+,C3A,,Livonian Order,Ingria
+,C3B,,Livonian Order,Ingria
+,C3C,,Livonian Order,Ingria
+,C3D,,Livonian Order,Ingria
+,C3E,,Livonian Order,Ingria
 ,C3F,,Muscovy,Novgorod
 ,C40,,Muscovy,Novgorod
 ,C41,,Muscovy,Novgorod
 ,C42,,Muscovy,Novgorod
 ,C43,,Muscovy,Ingria
-,C44,,Muscovy,Ingria
-,C45,,Muscovy,Ingria
-,C46,,Muscovy,Ingria
+,C44,,Livonian Order,Ingria
+,C45,,Livonian Order,Ingria
+,C46,,Livonian Order,Ingria
 ,C47,,Muscovy,Ingria
 ,C48,,Muscovy,Novgorod
 ,C49,,Muscovy,Novgorod
 ,C4A,,Muscovy,Novgorod
-,C4B,,Muscovy,Ingria
-,C4C,,Muscovy,Ingria
-,C4D,,Muscovy,Ingria
-,C4E,,Muscovy,Ingria
-,C4F,,Muscovy,Ingria
-,C50,,Muscovy,Ladoga
-,C51,,Muscovy,Ladoga
-,C52,,Muscovy,Ladoga
-,C53,,Muscovy,Ladoga
-,C54,,Muscovy,Ingria
-,C55,,Muscovy,Ingria
-,C56,,Muscovy,Ladoga
-,C57,,Muscovy,Ladoga
+,C4B,,Livonian Order,Ingria
+,C4C,,Livonian Order,Ingria
+,C4D,,Dorpat,Ingria
+,C4E,,Livonian Order,Ingria
+,C4F,,Sweden,Ingria
+,C50,,Sweden,Ladoga
+,C51,,Sweden,Ladoga
+,C52,,Sweden,Ladoga
+,C53,,Sweden,Ladoga
+,C54,,Sweden,Ingria
+,C55,,Livonian Order,Ingria
+,C56,,Sweden,Ladoga
+,C57,,Sweden,Ladoga
 ,C58,,Muscovy,Ladoga
 ,C59,,Muscovy,Ladoga
-,C5A,,Muscovy,Ladoga
+,C5A,,Sweden,Ladoga
 ,C5B,,Muscovy,Ladoga
 ,C5C,,Muscovy,Ladoga
 ,C5D,,Muscovy,Ladoga
@@ -3168,9 +3168,9 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,C5F,,Muscovy,Ladoga
 ,C60,,Muscovy,Ladoga
 ,C61,,Muscovy,Ladoga
-,C62,,Muscovy,Ladoga
-,C63,,Muscovy,Ladoga
-,C64,,Muscovy,Novgorod
+,C62,,Sweden,Ladoga
+,C63,,Livonian Order,Ladoga
+,C64,,Livonian Order,Novgorod
 ,C65,,Muscovy,Novgorod
 ,C66,Novgorod,Muscovy,Novgorod
 ,C67,,Muscovy,Novgorod
@@ -3208,11 +3208,11 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,C87,,Muscovy,Novgorod
 ,C88,,Muscovy,Novgorod
 ,C89,,Muscovy,Novgorod
-,C8A,Polisto,Muscovy,Novgorod
+,C8A,Polisto,Lithuania,Novgorod
 ,C8B,,Muscovy,Novgorod
-,C8C,Kholm,Muscovy,Novgorod
-,C8D,,Muscovy,Novgorod
-,C8E,Dunyani,Muscovy,Novgorod
+,C8C,Kholm,Lithuania,Novgorod
+,C8D,,Lithuania,Novgorod
+,C8E,Dunyani,Lithuania,Novgorod
 ,C8F,Gorozhane,Lithuania,Novgorod
 ,C90,Veliky Luki,Lithuania,Novgorod
 ,C91,,Muscovy,Novgorod
@@ -3298,7 +3298,7 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,CE1,,Muscovy,Ladoga
 ,CE2,,Muscovy,Beloozero
 ,CE3,,Muscovy,Ladoga
-,CE4,,Muscovy,Ladoga
+,CE4,,Sweden,Ladoga
 ,CE5,,Muscovy,Beloozero
 ,CE6,,Muscovy,Beloozero
 ,CE7,,Muscovy,Beloozero
@@ -3565,7 +3565,7 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,DEC,,Pskov,Pskov
 ,DED,,Pskov,Pskov
 ,DEE,,Pskov,Pskov
-,DEF,Baruts,Muscovy,Novgorod
+,DEF,Baruts,Lithuania,Novgorod
 ,DF0,,Pskov,Pskov
 ,DF1,Sebežas,Lithuania,Pskov
 ,DF2,,Pskov,Pskov
@@ -3869,7 +3869,7 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,F1C,,Lithuania,Polockas
 ,F1D,Verbilova,Lithuania,Polockas
 ,F1E,,Lithuania,Polockas
-,F1F,Rzheva Pustaya,Muscovy,Novgorod
+,F1F,Rzheva Pustaya,Lithuania,Novgorod
 ,F20,Nevelas,Lithuania,Polockas
 ,F21,Komša,Lithuania,Polockas
 ,F22,,Lithuania,Polockas
@@ -3930,7 +3930,7 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,F59,Roslavlis,Lithuania,Smolenskas
 ,F5A,Muškovičius,Lithuania,Smolenskas
 ,F5B,Zhiryatino,Lithuania,Mstislavlis
-,F5C,,Muscovy,Mstislavlis
+,F5C,,Lithuania,Mstislavlis
 ,F5D,Brianskas,Lithuania,Mstislavlis
 ,F5E,Počepas,Lithuania,Mstislavlis
 ,F5F,Mglin,Lithuania,Mstislavlis
@@ -3943,7 +3943,7 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,F66,,Lithuania,Mstislavlis
 ,F67,Radogošas,Lithuania,Mstislavlis
 ,F68,Trubetskas,Lithuania,Mstislavlis
-,F69,,Muscovy,Mstislavlis
+,F69,,Lithuania,Mstislavlis
 ,F6A,,Lithuania,Mstislavlis
 ,F6B,,Lithuania,Mstislavlis
 ,F6C,,Lithuania,Mstislavlis
@@ -4004,32 +4004,32 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,FA3,Žitomyras,Lithuania,Kijevas
 ,FA4,,Lithuania,Kijevas
 ,FA5,,Lithuania,Kijevas
-,FA6,Karačiovas,Muscovy,Mstislavlis
+,FA6,Karačiovas,Lithuania,Mstislavlis
 ,FA7,Kromy,Lithuania,Oka
-,FA8,Revny,Muscovy,Mstislavlis
-,FA9,Milolyubl,Muscovy,Černigovas
-,FAA,Kurskas,Muscovy,Černigovas
-,FAB,,Muscovy,Černigovas
-,FAC,,Muscovy,Černigovas
-,FAD,,Muscovy,Černigovas
-,FAE,,Muscovy,Černigovas
-,FAF,Hotmyshl,Muscovy,Černigovas
-,FB0,Nichan,Muscovy,Černigovas
-,FB1,Muzhech,Muscovy,Černigovas
-,FB2,,Muscovy,Černigovas
-,FB3,Homenas,Muscovy,Černigovas
-,FB4,,Muscovy,Černigovas
-,FB5,Putivl,Muscovy,Černigovas
-,FB6,Rylskas,Muscovy,Černigovas
-,FB7,Radogošas,Muscovy,Mstislavlis
-,FB8,,Muscovy,Černigovas
-,FB9,Hluchivas,Muscovy,Černigovas
-,FBA,,Muscovy,Černigovas
-,FBB,Znobov,Muscovy,Mstislavlis
-,FBC,Novgorodas-Severskis,Muscovy,Černigovas
-,FBD,,Muscovy,Černigovas
-,FBE,Malūnas,Muscovy,Černigovas
-,FBF,Targovica,Muscovy,Černigovas
+,FA8,Revny,Lithuania,Mstislavlis
+,FA9,Milolyubl,Lithuania,Černigovas
+,FAA,Kurskas,Lithuania,Černigovas
+,FAB,,Lithuania,Černigovas
+,FAC,,Lithuania,Černigovas
+,FAD,,Lithuania,Černigovas
+,FAE,,Lithuania,Černigovas
+,FAF,Hotmyshl,Lithuania,Černigovas
+,FB0,Nichan,Lithuania,Černigovas
+,FB1,Muzhech,Lithuania,Černigovas
+,FB2,,Lithuania,Černigovas
+,FB3,Homenas,Lithuania,Černigovas
+,FB4,,Lithuania,Černigovas
+,FB5,Putivl,Lithuania,Černigovas
+,FB6,Rylskas,Lithuania,Černigovas
+,FB7,Radogošas,Lithuania,Mstislavlis
+,FB8,,Lithuania,Černigovas
+,FB9,Hluchivas,Lithuania,Černigovas
+,FBA,,Lithuania,Černigovas
+,FBB,Znobov,Lithuania,Mstislavlis
+,FBC,Novgorodas-Severskis,Lithuania,Černigovas
+,FBD,,Lithuania,Černigovas
+,FBE,Malūnas,Lithuania,Černigovas
+,FBF,Targovica,Lithuania,Černigovas
 ,FC0,Šilovičius,Lithuania,Černigovas
 ,FC1,Domyslinas,Lithuania,Černigovas
 ,FC2,Gorskas,Lithuania,Černigovas
@@ -4059,10 +4059,10 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,FDA,,Lithuania,Kijevas
 ,FDB,,Lithuania,Kijevas
 ,FDC,,Lithuania,Kijevas
-,FDD,Piriatinas,Muscovy,Černigovas
-,FDE,Glinskas,Muscovy,Černigovas
-,FDF,,Muscovy,Černigovas
-,FE0,Donecas,Muscovy,Černigovas
+,FDD,Piriatinas,Lithuania,Černigovas
+,FDE,Glinskas,Lithuania,Černigovas
+,FDF,,Lithuania,Černigovas
+,FE0,Donecas,Lithuania,Černigovas
 ,FE1,Zaberega,Muscovy,Moscow
 ,FE2,,Lithuania,Kijevas
 ,FE3,,Lithuania,Kijevas
@@ -5682,8 +5682,8 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,1631,,Ottomans,Dulkadir
 ,1632,,Ottomans,Dulkadir
 ,1633,,Ottomans,Dulkadir
-,1634,,Ismail Safavid,Dulkadir
-,1635,,Ismail Safavid,Dulkadir
+,1634,,Ottomans,Dulkadir
+,1635,,Ottomans,Dulkadir
 ,1636,,Ottomans,Trebizond
 ,1637,,Ottomans,Trebizond
 ,1638,,Ottomans,Trebizond
@@ -6117,45 +6117,45 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,17E4,,Ismail Safavid,Tabriz
 ,17E5,,Ismail Safavid,Tabriz
 ,17E6,,Ismail Safavid,Tabriz
-,17E7,,Ismail Safavid,Armenia
-,17E8,,Ismail Safavid,Armenia
+,17E7,,Georgia,Armenia
+,17E8,,Georgia,Armenia
 ,17E9,,Ismail Safavid,Tabriz
 ,17EA,,Ismail Safavid,Tabriz
 ,17EB,,Ismail Safavid,Tabriz
-,17EC,,Ismail Safavid,Tabriz
-,17ED,,Ismail Safavid,Tabriz
-,17EE,,Ismail Safavid,Armenia
-,17EF,,Ismail Safavid,Armenia
-,17F0,,Ismail Safavid,Armenia
-,17F1,,Ismail Safavid,Armenia
-,17F2,,Ismail Safavid,Armenia
-,17F3,,Ismail Safavid,Armenia
-,17F4,,Ismail Safavid,Tabriz
-,17F5,,Ismail Safavid,Tabriz
-,17F6,,Ismail Safavid,Tabriz
-,17F7,,Ismail Safavid,Tabriz
-,17F8,,Ismail Safavid,Armenia
-,17F9,,Ismail Safavid,Armenia
-,17FA,,Ismail Safavid,Armenia
-,17FB,,Ismail Safavid,Armenia
-,17FC,,Ismail Safavid,Armenia
-,17FD,,Ismail Safavid,Armenia
-,17FE,,Ismail Safavid,Armenia
-,17FF,,Ismail Safavid,Armenia
-,1800,,Ismail Safavid,Armenia
-,1801,,Ismail Safavid,Armenia
-,1802,,Ismail Safavid,Armenia
-,1803,,Ismail Safavid,Armenia
-,1804,,Ismail Safavid,Armenia
-,1805,,Ismail Safavid,Armenia
-,1806,,Ismail Safavid,Armenia
-,1807,,Ismail Safavid,Armenia
-,1808,,Ismail Safavid,Armenia
-,1809,,Ismail Safavid,Armenia
-,180A,,Ismail Safavid,Armenia
-,180B,,Ismail Safavid,Armenia
-,180C,,Ismail Safavid,Armenia
-,180D,,Ismail Safavid,Tabriz
+,17EC,,Georgia,Tabriz
+,17ED,,Georgia,Tabriz
+,17EE,,Georgia,Armenia
+,17EF,,Georgia,Armenia
+,17F0,,Georgia,Armenia
+,17F1,,Georgia,Armenia
+,17F2,,Georgia,Armenia
+,17F3,,Georgia,Armenia
+,17F4,,Georgia,Tabriz
+,17F5,,Georgia,Tabriz
+,17F6,,Georgia,Tabriz
+,17F7,,Georgia,Tabriz
+,17F8,,Georgia,Armenia
+,17F9,,Georgia,Armenia
+,17FA,,Georgia,Armenia
+,17FB,,Georgia,Armenia
+,17FC,,Georgia,Armenia
+,17FD,,Georgia,Armenia
+,17FE,,Georgia,Armenia
+,17FF,,Georgia,Armenia
+,1800,,Georgia,Armenia
+,1801,,Georgia,Armenia
+,1802,,Georgia,Armenia
+,1803,,Georgia,Armenia
+,1804,,Georgia,Armenia
+,1805,,Georgia,Armenia
+,1806,,Georgia,Armenia
+,1807,,Georgia,Armenia
+,1808,,Georgia,Armenia
+,1809,,Georgia,Armenia
+,180A,,Georgia,Armenia
+,180B,,Georgia,Armenia
+,180C,,Georgia,Armenia
+,180D,,Georgia,Tabriz
 ,180E,,Samtskhe,Erzurum
 ,180F,,Samtskhe,Erzurum
 ,1810,,Samtskhe,Erzurum
@@ -6168,31 +6168,31 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,1817,,Samtskhe,Erzurum
 ,1818,,Samtskhe,Erzurum
 ,1819,,Samtskhe,Erzurum
-,181A,,Ismail Safavid,Erzurum
-,181B,,Ismail Safavid,Erzurum
-,181C,,Ismail Safavid,Van
-,181D,,Ismail Safavid,Van
-,181E,,Ismail Safavid,Van
-,181F,,Ismail Safavid,Van
-,1820,,Ismail Safavid,Van
-,1821,,Ismail Safavid,Van
-,1822,,Ismail Safavid,Van
-,1823,,Ismail Safavid,Van
-,1824,,Ismail Safavid,Van
-,1825,,Ismail Safavid,Van
-,1826,,Ismail Safavid,Van
-,1827,,Ismail Safavid,Van
-,1828,,Ismail Safavid,Van
-,1829,,Ismail Safavid,Van
-,182A,,Ismail Safavid,Van
-,182B,,Ismail Safavid,Van
-,182C,Muş,Ismail Safavid,Van
-,182D,,Ismail Safavid,Van
-,182E,,Ismail Safavid,Van
-,182F,,Ismail Safavid,Van
-,1830,,Ismail Safavid,Van
-,1831,Bingöl,Ismail Safavid,Van
-,1832,,Ismail Safavid,Erzurum
+,181A,,Ottomans,Erzurum
+,181B,,Ottomans,Erzurum
+,181C,,Ottomans,Van
+,181D,,Ottomans,Van
+,181E,,Ottomans,Van
+,181F,,Ottomans,Van
+,1820,,Ottomans,Van
+,1821,,Ottomans,Van
+,1822,,Ottomans,Van
+,1823,,Ottomans,Van
+,1824,,Ottomans,Van
+,1825,,Ottomans,Van
+,1826,,Ottomans,Van
+,1827,,Ottomans,Van
+,1828,,Ottomans,Van
+,1829,,Ottomans,Van
+,182A,,Ottomans,Van
+,182B,,Ottomans,Van
+,182C,Muş,Ottomans,Van
+,182D,,Ottomans,Van
+,182E,,Ottomans,Van
+,182F,,Ottomans,Van
+,1830,,Ottomans,Van
+,1831,Bingöl,Ottomans,Van
+,1832,,Ottomans,Erzurum
 ,1833,,Ottomans,Erzurum
 ,1834,,Ottomans,Erzurum
 ,1835,,Ottomans,Erzurum
@@ -6210,44 +6210,44 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,1841,,Ottomans,Erzurum
 ,1842,,Ottomans,Erzurum
 ,1843,,Ottomans,Erzurum
-,1844,,Ismail Safavid,Erzurum
+,1844,,Ottomans,Erzurum
 ,1845,,Ottomans,Erzurum
 ,1846,Harput,Ottomans,Erzurum
-,1847,,Ismail Safavid,Erzurum
-,1848,,Ismail Safavid,Erzurum
-,1849,,Ismail Safavid,Van
-,184A,,Ismail Safavid,Van
-,184B,Diyar Bakr,Ismail Safavid,Van
-,184C,,Ismail Safavid,Van
-,184D,,Ismail Safavid,Van
-,184E,,Ismail Safavid,Van
-,184F,,Ismail Safavid,Van
-,1850,,Ismail Safavid,Van
-,1851,,Ismail Safavid,Van
-,1852,,Ismail Safavid,Van
-,1853,,Ismail Safavid,Van
-,1854,,Ismail Safavid,Van
+,1847,,Ottomans,Erzurum
+,1848,,Ottomans,Erzurum
+,1849,,Ottomans,Van
+,184A,,Ottomans,Van
+,184B,Diyar Bakr,Ottomans,Van
+,184C,,Ottomans,Van
+,184D,,Ottomans,Van
+,184E,,Ottomans,Van
+,184F,,Ottomans,Van
+,1850,,Ottomans,Van
+,1851,,Ottomans,Van
+,1852,,Ottomans,Van
+,1853,,Ottomans,Van
+,1854,,Ottomans,Van
 ,1855,Crottendorf,Schönburg,Vogtland
-,1856,,Ismail Safavid,Van
-,1857,,Ismail Safavid,Van
-,1858,Siirt,Ismail Safavid,Van
-,1859,Bitlis,Ismail Safavid,Van
-,185A,,Ismail Safavid,Van
-,185B,,Ismail Safavid,Van
-,185C,,Ismail Safavid,Van
-,185D,,Ismail Safavid,Van
-,185E,,Ismail Safavid,Van
-,185F,,Ismail Safavid,Van
-,1860,,Ismail Safavid,Van
-,1861,Van,Ismail Safavid,Van
-,1862,,Ismail Safavid,Van
-,1863,,Ismail Safavid,Van
-,1864,,Ismail Safavid,Van
-,1865,,Ismail Safavid,Van
-,1866,,Ismail Safavid,Van
-,1867,,Ismail Safavid,Van
-,1868,,Ismail Safavid,Van
-,1869,,Ismail Safavid,Van
+,1856,,Ottomans,Van
+,1857,,Ottomans,Van
+,1858,Siirt,Ottomans,Van
+,1859,Bitlis,Ottomans,Van
+,185A,,Ottomans,Van
+,185B,,Ottomans,Van
+,185C,,Ottomans,Van
+,185D,,Ottomans,Van
+,185E,,Ottomans,Van
+,185F,,Ottomans,Van
+,1860,,Ottomans,Van
+,1861,Van,Ottomans,Van
+,1862,,Ottomans,Van
+,1863,,Ottomans,Van
+,1864,,Ottomans,Van
+,1865,,Ottomans,Van
+,1866,,Ottomans,Van
+,1867,,Ottomans,Van
+,1868,,Ottomans,Van
+,1869,,Ottomans,Van
 ,186A,,Ottomans,Syria
 ,186B,,Ottomans,Syria
 ,186C,,Ottomans,Syria
@@ -6257,150 +6257,150 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,1870,,Ottomans,Syria
 ,1871,,Ottomans,Syria
 ,1872,Al-Beni Abbas,Ottomans,Rakka
-,1873,,Ismail Safavid,Rakka
-,1874,,Ismail Safavid,Rakka
-,1875,,Ismail Safavid,Rakka
-,1876,,Ismail Safavid,Rakka
-,1877,,Ismail Safavid,Rakka
-,1878,,Ismail Safavid,Rakka
-,1879,,Ismail Safavid,Rakka
-,187A,,Ismail Safavid,Rakka
-,187B,,Ismail Safavid,Rakka
-,187C,,Ismail Safavid,Rakka
-,187D,,Ismail Safavid,Rakka
-,187E,,Ismail Safavid,Baghdad
-,187F,,Ismail Safavid,Baghdad
-,1880,,Ismail Safavid,Baghdad
-,1881,,Ismail Safavid,Baghdad
-,1882,,Ismail Safavid,Rakka
-,1883,,Ismail Safavid,Baghdad
-,1884,,Ismail Safavid,Baghdad
-,1885,,Ismail Safavid,Baghdad
-,1886,,Ismail Safavid,Baghdad
-,1887,,Ismail Safavid,Baghdad
-,1888,,Ismail Safavid,Baghdad
-,1889,Baghdad,Ismail Safavid,Baghdad
-,188A,,Ismail Safavid,Baghdad
-,188B,,Ismail Safavid,Baghdad
-,188C,,Ismail Safavid,Baghdad
-,188D,,Ismail Safavid,Baghdad
-,188E,,Ismail Safavid,Baghdad
-,188F,,Ismail Safavid,Baghdad
-,1890,,Ismail Safavid,Baghdad
-,1891,,Ismail Safavid,Basra
-,1892,,Ismail Safavid,Basra
-,1893,,Ismail Safavid,Basra
-,1894,,Ismail Safavid,Basra
-,1895,,Ismail Safavid,Basra
-,1896,,Ismail Safavid,Basra
-,1897,,Ismail Safavid,Basra
-,1898,,Ismail Safavid,Basra
-,1899,,Ismail Safavid,Basra
-,189A,,Ismail Safavid,Basra
-,189B,,Ismail Safavid,Basra
-,189C,Basra,Ismail Safavid,Basra
+,1873,,Ottomans,Rakka
+,1874,,Ottomans,Rakka
+,1875,,Ottomans,Rakka
+,1876,,Ottomans,Rakka
+,1877,,Ottomans,Rakka
+,1878,,Ottomans,Rakka
+,1879,,Ottomans,Rakka
+,187A,,Ottomans,Rakka
+,187B,,Ottomans,Rakka
+,187C,,Ottomans,Rakka
+,187D,,Ottomans,Rakka
+,187E,,Ottomans,Baghdad
+,187F,,Ottomans,Baghdad
+,1880,,Ottomans,Baghdad
+,1881,,Ottomans,Baghdad
+,1882,,Ottomans,Rakka
+,1883,,Ottomans,Baghdad
+,1884,,Ottomans,Baghdad
+,1885,,Ottomans,Baghdad
+,1886,,Ottomans,Baghdad
+,1887,,Ottomans,Baghdad
+,1888,,Ottomans,Baghdad
+,1889,Baghdad,Ottomans,Baghdad
+,188A,,Ottomans,Baghdad
+,188B,,Ottomans,Baghdad
+,188C,,Ottomans,Baghdad
+,188D,,Ottomans,Baghdad
+,188E,,Ottomans,Baghdad
+,188F,,Ottomans,Baghdad
+,1890,,Ottomans,Baghdad
+,1891,,Ottomans,Basra
+,1892,,Ottomans,Basra
+,1893,,Ottomans,Basra
+,1894,,Ottomans,Basra
+,1895,,Ottomans,Basra
+,1896,,Ottomans,Basra
+,1897,,Ottomans,Basra
+,1898,,Ottomans,Basra
+,1899,,Ottomans,Basra
+,189A,,Ottomans,Basra
+,189B,,Ottomans,Basra
+,189C,Basra,Ottomans,Basra
 ,189D,,Mushashaiyyah,Basra
 ,189E,,Mushashaiyyah,Basra
 ,189F,,Mushashaiyyah,Basra
-,18A0,,Ismail Safavid,Basra
-,18A1,,Ismail Safavid,Basra
+,18A0,,Ottomans,Basra
+,18A1,,Ottomans,Basra
 ,18A2,,Mushashaiyyah,Basra
 ,18A3,,Mushashaiyyah,Basra
-,18A4,,Ismail Safavid,Basra
-,18A5,,Ismail Safavid,Basra
-,18A6,,Ismail Safavid,Basra
-,18A7,,Ismail Safavid,Basra
-,18A8,,Ismail Safavid,Basra
-,18A9,,Ismail Safavid,Basra
-,18AA,,Ismail Safavid,Basra
-,18AB,,Ismail Safavid,Basra
-,18AC,,Ismail Safavid,Basra
-,18AD,,Ismail Safavid,Basra
-,18AE,,Ismail Safavid,Basra
-,18AF,,Ismail Safavid,Basra
-,18B0,,Ismail Safavid,Baghdad
-,18B1,,Ismail Safavid,Basra
-,18B2,,Ismail Safavid,Basra
-,18B3,,Ismail Safavid,Basra
-,18B4,,Ismail Safavid,Basra
-,18B5,,Ismail Safavid,Baghdad
-,18B6,,Ismail Safavid,Baghdad
-,18B7,,Ismail Safavid,Baghdad
-,18B8,,Ismail Safavid,Baghdad
-,18B9,,Ismail Safavid,Baghdad
-,18BA,,Ismail Safavid,Baghdad
-,18BB,,Ismail Safavid,Baghdad
-,18BC,,Ismail Safavid,Baghdad
-,18BD,,Ismail Safavid,Baghdad
-,18BE,,Ismail Safavid,Baghdad
-,18BF,,Ismail Safavid,Baghdad
-,18C0,,Ismail Safavid,Baghdad
-,18C1,,Ismail Safavid,Baghdad
-,18C2,,Ismail Safavid,Baghdad
-,18C3,,Ismail Safavid,Baghdad
-,18C4,,Ismail Safavid,Baghdad
-,18C5,,Ismail Safavid,Ardalan
-,18C6,,Ismail Safavid,Ardalan
-,18C7,,Ismail Safavid,Ardalan
-,18C8,,Ismail Safavid,Ardalan
-,18C9,,Ismail Safavid,Ardalan
-,18CA,,Ismail Safavid,Ardalan
-,18CB,,Ismail Safavid,Ardalan
-,18CC,,Ismail Safavid,Ardalan
-,18CD,,Ismail Safavid,Ardalan
-,18CE,,Ismail Safavid,Mosul
-,18CF,,Ismail Safavid,Mosul
-,18D0,,Ismail Safavid,Ardalan
-,18D1,,Ismail Safavid,Mosul
-,18D2,,Ismail Safavid,Ardalan
-,18D3,,Ismail Safavid,Baghdad
-,18D4,,Ismail Safavid,Baghdad
-,18D5,,Ismail Safavid,Rakka
-,18D6,,Ismail Safavid,Baghdad
-,18D7,,Ismail Safavid,Rakka
-,18D8,,Ismail Safavid,Mosul
-,18D9,,Ismail Safavid,Rakka
-,18DA,,Ismail Safavid,Rakka
-,18DB,,Ismail Safavid,Mosul
-,18DC,,Ismail Safavid,Rakka
-,18DD,Mosul,Ismail Safavid,Mosul
-,18DE,,Ismail Safavid,Mosul
-,18DF,,Ismail Safavid,Mosul
-,18E0,,Ismail Safavid,Mosul
-,18E1,,Ismail Safavid,Mosul
-,18E2,,Ismail Safavid,Mosul
-,18E3,,Ismail Safavid,Mosul
-,18E4,,Ismail Safavid,Mosul
-,18E5,,Ismail Safavid,Mosul
-,18E6,,Ismail Safavid,Mosul
-,18E7,,Ismail Safavid,Mosul
-,18E8,,Ismail Safavid,Mosul
-,18E9,,Ismail Safavid,Mosul
-,18EA,,Ismail Safavid,Mosul
-,18EB,,Ismail Safavid,Mosul
-,18EC,,Ismail Safavid,Mosul
-,18ED,,Ismail Safavid,Mosul
-,18EE,,Ismail Safavid,Mosul
-,18EF,,Ismail Safavid,Mosul
-,18F0,,Ismail Safavid,Mosul
-,18F1,,Ismail Safavid,Rakka
-,18F2,,Ismail Safavid,Rakka
-,18F3,,Ismail Safavid,Mosul
-,18F4,,Ismail Safavid,Mosul
-,18F5,,Ismail Safavid,Mosul
-,18F6,,Ismail Safavid,Rakka
-,18F7,,Ismail Safavid,Rakka
-,18F8,,Ismail Safavid,Rakka
-,18F9,Hasankeyf,Ismail Safavid,Rakka
-,18FA,,Ismail Safavid,Rakka
-,18FB,,Ismail Safavid,Rakka
-,18FC,Mardin,Ismail Safavid,Rakka
-,18FD,,Ismail Safavid,Rakka
-,18FE,,Ismail Safavid,Rakka
-,18FF,,Ismail Safavid,Rakka
-,1900,,Ismail Safavid,Rakka
-,1901,,Ismail Safavid,Rakka
-,1902,,Ismail Safavid,Basra
+,18A4,,Ottomans,Basra
+,18A5,,Ottomans,Basra
+,18A6,,Ottomans,Basra
+,18A7,,Ottomans,Basra
+,18A8,,Ottomans,Basra
+,18A9,,Ottomans,Basra
+,18AA,,Ottomans,Basra
+,18AB,,Ottomans,Basra
+,18AC,,Ottomans,Basra
+,18AD,,Ottomans,Basra
+,18AE,,Ottomans,Basra
+,18AF,,Ottomans,Basra
+,18B0,,Ottomans,Baghdad
+,18B1,,Ottomans,Basra
+,18B2,,Ottomans,Basra
+,18B3,,Ottomans,Basra
+,18B4,,Ottomans,Basra
+,18B5,,Ottomans,Baghdad
+,18B6,,Ottomans,Baghdad
+,18B7,,Ottomans,Baghdad
+,18B8,,Ottomans,Baghdad
+,18B9,,Ottomans,Baghdad
+,18BA,,Ottomans,Baghdad
+,18BB,,Ottomans,Baghdad
+,18BC,,Ottomans,Baghdad
+,18BD,,Ottomans,Baghdad
+,18BE,,Ottomans,Baghdad
+,18BF,,Ottomans,Baghdad
+,18C0,,Ottomans,Baghdad
+,18C1,,Ottomans,Baghdad
+,18C2,,Ottomans,Baghdad
+,18C3,,Ottomans,Baghdad
+,18C4,,Ottomans,Baghdad
+,18C5,,Ottomans,Ardalan
+,18C6,,Ottomans,Ardalan
+,18C7,,Ottomans,Ardalan
+,18C8,,Ottomans,Ardalan
+,18C9,,Ottomans,Ardalan
+,18CA,,Ottomans,Ardalan
+,18CB,,Ottomans,Ardalan
+,18CC,,Ottomans,Ardalan
+,18CD,,Ottomans,Ardalan
+,18CE,,Ottomans,Mosul
+,18CF,,Ottomans,Mosul
+,18D0,,Ottomans,Ardalan
+,18D1,,Ottomans,Mosul
+,18D2,,Ottomans,Ardalan
+,18D3,,Ottomans,Baghdad
+,18D4,,Ottomans,Baghdad
+,18D5,,Ottomans,Rakka
+,18D6,,Ottomans,Baghdad
+,18D7,,Ottomans,Rakka
+,18D8,,Ottomans,Mosul
+,18D9,,Ottomans,Rakka
+,18DA,,Ottomans,Rakka
+,18DB,,Ottomans,Mosul
+,18DC,,Ottomans,Rakka
+,18DD,Mosul,Ottomans,Mosul
+,18DE,,Ottomans,Mosul
+,18DF,,Ottomans,Mosul
+,18E0,,Ottomans,Mosul
+,18E1,,Ottomans,Mosul
+,18E2,,Ottomans,Mosul
+,18E3,,Ottomans,Mosul
+,18E4,,Ottomans,Mosul
+,18E5,,Ottomans,Mosul
+,18E6,,Ottomans,Mosul
+,18E7,,Ottomans,Mosul
+,18E8,,Ottomans,Mosul
+,18E9,,Ottomans,Mosul
+,18EA,,Ottomans,Mosul
+,18EB,,Ottomans,Mosul
+,18EC,,Ottomans,Mosul
+,18ED,,Ottomans,Mosul
+,18EE,,Ottomans,Mosul
+,18EF,,Ottomans,Mosul
+,18F0,,Ottomans,Mosul
+,18F1,,Ottomans,Rakka
+,18F2,,Ottomans,Rakka
+,18F3,,Ottomans,Mosul
+,18F4,,Ottomans,Mosul
+,18F5,,Ottomans,Mosul
+,18F6,,Ottomans,Rakka
+,18F7,,Ottomans,Rakka
+,18F8,,Ottomans,Rakka
+,18F9,Hasankeyf,Ottomans,Rakka
+,18FA,,Ottomans,Rakka
+,18FB,,Ottomans,Rakka
+,18FC,Mardin,Ottomans,Rakka
+,18FD,,Ottomans,Rakka
+,18FE,,Ottomans,Rakka
+,18FF,,Ottomans,Rakka
+,1900,,Ottomans,Rakka
+,1901,,Ottomans,Rakka
+,1902,,Ottomans,Basra
 ,1903,,Ottomans,Syria
 ,1904,,Ottomans,Syria
 ,1905,,Ottomans,Syria
@@ -6893,7 +6893,7 @@ Map Colour,Hexidecimal ID,Province Name,Province Owner,Region
 ,1AEC,,Muscovy,Oka
 ,1AED,,Muscovy,Oka
 ,1AEE,Pupovičius,Lithuania,Polockas
-,1AEF,,Muscovy,Černigovas
+,1AEF,,Lithuania,Černigovas
 ,1AF0,Buigorodas,Lithuania,Smolenskas
 ,1AF1,,Muscovy,Rzhev
 ,1AF2,Ozertsy,Muscovy,Rzhev
