@@ -1,20 +1,31 @@
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
-
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import javax.imageio.ImageIO;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.List;
+import javax.imageio.ImageIO;
 
 public class ImagePixelColor {
     private static List<String[]> csvData;
     private static List<String[]> holdingData;
+    private static BufferedImage baseImage;
+    private static HashMap<Integer, BufferedImage> overlayImages = new HashMap<>();
+    private static boolean isProvinces = false;
+    private static boolean isRegions = false;
+    private static BufferedImage regionsImage;
+    private static JRadioButton lastSelected = null;
+
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -28,21 +39,97 @@ public class ImagePixelColor {
         JFrame frame = new JFrame("Image Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        BufferedImage baseImage = null;
-        BufferedImage overlayImage = null;
         try {
             baseImage = ImageIO.read(new File("input2.png"));
-            overlayImage = ImageIO.read(new File("input1.png"));
-            csvData = new CSVReader(new InputStreamReader(new FileInputStream("input3.csv"), "UTF-8")).readAll();
-            holdingData = new CSVReader(new InputStreamReader(new FileInputStream("input4.csv"), "UTF-8")).readAll();
-
+            regionsImage = ImageIO.read(new File("regions.png")); // Load regions image
+            for (int i = 0; i <= 19; i++) {
+                overlayImages.put(i, ImageIO.read(new File("map" + i + ".png")));
+            }
+            csvData = new CSVReader(new FileReader("input3.csv")).readAll();
+            holdingData = new CSVReader(new FileReader("input4.csv")).readAll();
         } catch (IOException | CsvException e) {
             e.printStackTrace();
             System.exit(1);
         }
-        ImagePanel imagePanel = new ImagePanel(baseImage, overlayImage);
 
-        frame.add(new JScrollPane(imagePanel));
+        ImagePanel imagePanel = new ImagePanel(baseImage, overlayImages.get(19));
+
+        JSlider yearSlider = new JSlider(JSlider.HORIZONTAL, 0, 19, 19);
+        yearSlider.setPreferredSize(new Dimension(650, 50));
+        yearSlider.setMajorTickSpacing(1);
+        yearSlider.setPaintTicks(true);
+        yearSlider.setSnapToTicks(true);
+        yearSlider.setPaintLabels(true);
+        Hashtable<Integer, JLabel> labelTable = new Hashtable<>();
+        for (int i = 0; i <= 19; i++) {
+            JLabel label = new JLabel(String.valueOf(1500 + i));
+            label.setFont(new Font("Arial", Font.BOLD, 10)); // Adjust the font size here
+            labelTable.put(i, label);
+        }
+        yearSlider.setLabelTable(labelTable);
+        yearSlider.addChangeListener(e -> {
+            if (isProvinces || isRegions) {
+                return;
+            }
+            imagePanel.changeOverlayImage(overlayImages.get(yearSlider.getValue()));
+        });
+        yearSlider.setBorder(new EmptyBorder(0, 0, 0, 50));
+
+        JRadioButton provincesButton = new JRadioButton("Provinces");
+        provincesButton.addActionListener(e -> {
+            if (provincesButton.equals(lastSelected)) {
+                provincesButton.setSelected(false);
+                lastSelected = null;
+                isProvinces = false;
+                imagePanel.changeOverlayImage(overlayImages.get(yearSlider.getValue()));
+            } else {
+                lastSelected = provincesButton;
+                isProvinces = true;
+                isRegions = false;
+                imagePanel.changeOverlayImage(baseImage);
+            }
+        });
+
+        JRadioButton regionsButton = new JRadioButton("Regions");
+        regionsButton.addActionListener(e -> {
+            if (regionsButton.equals(lastSelected)) {
+                regionsButton.setSelected(false);
+                lastSelected = null;
+                isRegions = false;
+                imagePanel.changeOverlayImage(overlayImages.get(yearSlider.getValue()));
+            } else {
+                lastSelected = regionsButton;
+                isRegions = true;
+                isProvinces = false;
+                imagePanel.changeOverlayImage(regionsImage);
+            }
+        });
+        class NoneSelectedButtonGroup extends ButtonGroup {
+
+            @Override
+            public void setSelected(ButtonModel model, boolean selected) {
+                if (selected) {
+                    super.setSelected(model, selected);
+                } else {
+                    clearSelection();
+                }
+            }
+        }
+
+        NoneSelectedButtonGroup buttonGroup = new NoneSelectedButtonGroup();
+        buttonGroup.add(provincesButton);
+        buttonGroup.add(regionsButton);
+
+        JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        buttonsPanel.add(provincesButton);
+        buttonsPanel.add(regionsButton);
+
+        JPanel controlsPanel = new JPanel(new BorderLayout());
+        controlsPanel.add(buttonsPanel, BorderLayout.WEST);
+        controlsPanel.add(yearSlider, BorderLayout.EAST);
+
+        frame.add(controlsPanel, BorderLayout.NORTH);
+        frame.add(new JScrollPane(imagePanel), BorderLayout.CENTER);
         frame.setSize(1200, 800);
         frame.setVisible(true);
     }
@@ -51,8 +138,9 @@ public class ImagePixelColor {
         BufferedImage baseImage;
         BufferedImage overlayImage;
         HashMap<String, JFrame> holdingWindows = new HashMap<>();
-        JScrollPane holdingListScrollPane; // Added instance variable for the holding list scroll pane
-        JFrame listWindow; // Added instance variable for the list window
+        JScrollPane holdingListScrollPane;
+        JFrame listWindow;
+
 
         public ImagePanel(BufferedImage baseImage, BufferedImage overlayImage) {
             this.baseImage = baseImage;
@@ -75,6 +163,12 @@ public class ImagePixelColor {
                 }
             });
         }
+        public void changeOverlayImage(BufferedImage newOverlayImage) {
+            this.overlayImage = newOverlayImage;
+            repaint();
+        }
+
+
 
         private void showMatchingData(String hex, Point point) {
             for (String[] row : csvData) {
@@ -211,8 +305,8 @@ public class ImagePixelColor {
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawImage(baseImage, 0, 0, this);
-            g.drawImage(overlayImage, 0, 0, this);
+            g.drawImage(baseImage, 0, 0, null);
+            g.drawImage(overlayImage, 0, 0, null);
         }
     }
 }
