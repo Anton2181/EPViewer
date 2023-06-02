@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="EPViewer:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fe03a732-319c-42d2-8914-4a5ae6bfec07" name="Changes" comment="Recap button added (initial)">
+      <change afterPath="$PROJECT_DIR$/../EPViewer.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/input1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/input2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/input3.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/input4.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/map9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/out/artifacts/EPViewer_jar/EPViewer.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/regions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/EPViewerGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/dataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/displayHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/mapGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/recapBrowser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/EPViewerGUI$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/EPViewerGUI$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/EPViewerGUI$NoneSelectedButtonGroup.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/EPViewerGUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/dataManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/displayHandler$mapDisplay$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/displayHandler$mapDisplay$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/displayHandler$mapDisplay.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/displayHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/mapGenerator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/recapBrowser$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/recapBrowser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ImagePixelColor_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../EPViewer/.idea/artifacts/EPViewer_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input4.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/map9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ImagePixelColor_jar/ImagePixelColor.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/regions.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ImagePixelColor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$ImagePanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$ImagePanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$ImagePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$NoneSelectedButtonGroup.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../input4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../input4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map19.png" beforeDir="false" afterPath="$PROJECT_DIR$/../map19.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="2QQmopmCuaInQzVZwzqOFeXcFZS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EPViewer" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.36666667" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="displayHandler" />
+      <recent name="recapBrowser" />
+      <recent name="mapGenerator" />
+      <recent name="dataManager" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="EPViewer" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="EPViewerGUI" />
+      <module name="EPViewer" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../EPViewer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="EPViewer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="EPViewer" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fe03a732-319c-42d2-8914-4a5ae6bfec07" name="Changes" comment="" />
+      <created>1685294359326</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685294359326</updated>
+    </task>
+    <task id="LOCAL-00001" summary="removed blank row">
+      <created>1685301176097</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685301176097</updated>
+    </task>
+    <task id="LOCAL-00002" summary="restored old .jar">
+      <created>1685302068702</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685302068702</updated>
+    </task>
+    <task id="LOCAL-00003" summary="New data update">
+      <created>1685516768512</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685516768512</updated>
+    </task>
+    <task id="LOCAL-00004" summary="New data update">
+      <created>1685516832796</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685516832796</updated>
+    </task>
+    <task id="LOCAL-00005" summary="region and timeline added (jarless)">
+      <created>1685530644173</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685530644173</updated>
+    </task>
+    <task id="LOCAL-00006" summary="transparency bar added">
+      <created>1685538785460</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685538785460</updated>
+    </task>
+    <task id="LOCAL-00007" summary="encoding fix">
+      <created>1685539322275</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685539322275</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Tax Income import and visualization added">
+      <created>1685560921767</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685560921767</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Tax Income import and visualization added">
+      <created>1685560987021</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685560987021</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Holdings visualization added">
+      <created>1685563142729</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685563142729</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Caching implemented">
+      <created>1685576527698</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685576527698</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Caching implemented">
+      <created>1685576646348</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685576646348</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Recap button added (initial)">
+      <created>1685666647319</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685666647319</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Recap button added (initial)">
+      <created>1685700661752</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685700661752</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="removed blank row" />
+    <MESSAGE value="restored old .jar" />
+    <MESSAGE value="New data update" />
+    <MESSAGE value="region and timeline added (jarless)" />
+    <MESSAGE value="transparency bar added" />
+    <MESSAGE value="encoding fix" />
+    <MESSAGE value="Tax Income import and visualization added" />
+    <MESSAGE value="Holdings visualization added" />
+    <MESSAGE value="Caching implemented" />
+    <MESSAGE value="Recap button added (initial)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Recap button added (initial)" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
