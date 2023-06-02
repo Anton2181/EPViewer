@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -90,17 +89,12 @@ public class displayHandler {
         private void showMatchingData(String hex, Point point) {
             String[] rowData = dataManager.findMatchingData(hex);
             if (rowData != null) {
-                JTextArea textArea = null;
+                JTextArea textArea;
                 JButton button = new JButton("Show Holdings");
-                String finalHex = hex;
-                button.addActionListener(e -> {
-                    showHoldingList(finalHex, point);
-                });
+                button.addActionListener(e -> showHoldingList(hex, point));
 
                 JButton hideButton = new JButton("Hide Holdings");
-                hideButton.addActionListener(e -> {
-                    hideHoldingList();
-                });
+                hideButton.addActionListener(e -> hideHoldingList());
 
                 JPanel panel = new JPanel();
                 panel.setLayout(new BorderLayout());
@@ -139,7 +133,6 @@ public class displayHandler {
             DefaultListModel<String> listModel = dataManager.getHoldingList(hex);
 
             JList<String> list = new JList<>(listModel);
-            String finalHex = hex;
             list.addMouseListener(new MouseAdapter() {
                 public void mouseClicked(MouseEvent evt) {
                     JList list = (JList) evt.getSource();
@@ -147,7 +140,7 @@ public class displayHandler {
                         // Double-click detected
                         int index = list.locationToIndex(evt.getPoint());
                         String selectedHoldingName = listModel.get(index);
-                        showSingleHoldingData(selectedHoldingName, finalHex, point);
+                        showSingleHoldingData(selectedHoldingName, hex, point);
                     }
                 }
             });

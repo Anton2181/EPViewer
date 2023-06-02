@@ -4,29 +4,24 @@ import javax.swing.*;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 public class EPViewerGUI {
-    private static JFrame transparencyFrame = null;
-    private static JFrame dataImportWindow;
     public static boolean provinceDataLoaded=false;
     public static JSlider zoomSlider; // Adding here
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    createAndShowGUI();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        SwingUtilities.invokeLater(() -> {
+            try {
+                createAndShowGUI();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
     }
@@ -35,16 +30,19 @@ public class EPViewerGUI {
 
         JFrame frame = new JFrame("Image Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        JRadioButton holdingsButton = new JRadioButton("Holdings Distribution");
         displayHandler.overlayImages.put(19, ImageIO.read(new File("maps/map" + 19 + ".png")));
 
         try {
             displayHandler.baseImage = ImageIO.read(new File("maps/input2.png"));
             displayHandler.regionsImage = ImageIO.read(new File("maps/regions.png"));
-            dataManager.csvData = new CSVReader(new InputStreamReader(new FileInputStream("data/input3.csv"), "UTF-8")).readAll();
-            dataManager.holdingData = new CSVReader(new InputStreamReader(new FileInputStream("data/input4.csv"), "UTF-8")).readAll();
+            dataManager.csvData = new CSVReader(new InputStreamReader(new FileInputStream("data/input3.csv"), StandardCharsets.UTF_8)).readAll();
+            dataManager.holdingData = new CSVReader(new InputStreamReader(new FileInputStream("data/input4.csv"), StandardCharsets.UTF_8)).readAll();
         } catch (IOException | CsvException e) {
             e.printStackTrace();
+            System.exit(1);
+        } catch (IllegalArgumentException e) {
+            System.err.println("Error: Can't find input file - " + e.getMessage());
             System.exit(1);
         }
 
@@ -62,7 +60,8 @@ public class EPViewerGUI {
             System.exit(1);
         }
 
-
+        JRadioButton taxIncomeButton = new JRadioButton("Tax Income");
+        taxIncomeButton.setEnabled(false);
 
         displayHandler.mapDisplay mapDisplay = new displayHandler.mapDisplay(displayHandler.baseImage, displayHandler.overlayImages.get(19));
 
@@ -71,50 +70,48 @@ public class EPViewerGUI {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         NoneSelectedButtonGroup buttonGroup = new NoneSelectedButtonGroup();
+        buttonGroup.add(holdingsButton);
+        buttonGroup.add(taxIncomeButton);
+
+
+        taxIncomeButton.addActionListener(f -> {
+            BufferedImage taxIncomeMap = null;
+            try {
+                taxIncomeMap = ImageIO.read(new File(mapGenerator.taxIncomeMapPath));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            mapDisplay.changeRegionsOrProvincesImage(taxIncomeButton.isSelected() ? taxIncomeMap : null);
+            if (taxIncomeButton.isSelected()) {
+                buttonGroup.createTransparencyControl(taxIncomeButton, "Tax Income", mapDisplay);
+
+            }
+        });
+
         JRadioButton provincesButton = new JRadioButton("Provinces");
         provincesButton.addActionListener(e -> {
             mapDisplay.changeRegionsOrProvincesImage(provincesButton.isSelected() ? displayHandler.baseImage : null);
             if (provincesButton.isSelected()) {
-                createTransparencyControl(provincesButton, "Provinces", mapDisplay);
+                buttonGroup.createTransparencyControl(provincesButton, "Provinces", mapDisplay);
             }
         });
-        buttonGroup.add(provincesButton);
+
         buttonPanel.add(provincesButton);
 
         JRadioButton regionsButton = new JRadioButton("Regions");
         regionsButton.addActionListener(e -> {
             mapDisplay.changeRegionsOrProvincesImage(regionsButton.isSelected() ? displayHandler.regionsImage : null);
             if (regionsButton.isSelected()) {
-                createTransparencyControl(regionsButton, "Regions", mapDisplay);
+                buttonGroup.createTransparencyControl(regionsButton, "Regions", mapDisplay);
             }
 
         });
-        buttonGroup.add(regionsButton);
-        buttonPanel.add(regionsButton);
 
         JButton newWindowButton = new JButton("Import Data");
         newWindowButton.addActionListener(e -> {
-            if (dataImportWindow == null || !dataImportWindow.isVisible()) {
-                dataImportWindow = new JFrame("Import Data");
-                dataImportWindow.setSize(300, 400);
-                Point p = newWindowButton.getLocationOnScreen();
-                dataImportWindow.setLocation(p.x, p.y + 50);
-                dataImportWindow.setAlwaysOnTop(true);
 
-                Box box = Box.createVerticalBox();
-
-                JButton fileChooserButton = new JButton("Select CSV");
                 JLabel confirmationLabel = new JLabel();
 
-                fileChooserButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-                JRadioButton taxIncomeButton = new JRadioButton("Tax Income");
-
-                taxIncomeButton.setEnabled(false);
-                buttonGroup.add(taxIncomeButton);
-                taxIncomeButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-                fileChooserButton.addActionListener(event -> {
                     JFileChooser fileChooser = new JFileChooser();
                     FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV Files", "csv");
                     fileChooser.setFileFilter(filter);
@@ -141,64 +138,16 @@ public class EPViewerGUI {
                             confirmationLabel.setText("Failed to load file!");
                             taxIncomeButton.setEnabled(false);
                         }
-                    }
-                });
-                taxIncomeButton.addActionListener(f -> {
-                    BufferedImage taxIncomeMap = null;
-                    try {
-                        taxIncomeMap = ImageIO.read(new File(mapGenerator.taxIncomeMapPath));
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                    mapDisplay.changeRegionsOrProvincesImage(taxIncomeButton.isSelected() ? taxIncomeMap : null);
-                    if (taxIncomeButton.isSelected()) {
-                        createTransparencyControl(taxIncomeButton, "Tax Income", mapDisplay);
-                    }
-                });
 
-                box.add(Box.createVerticalStrut(50));
-                box.add(fileChooserButton);
-                box.add(Box.createVerticalStrut(50));
-                box.add(confirmationLabel);
 
-                JPanel radioButtonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 
-                JRadioButton holdingsButton = new JRadioButton("Holdings Distribution");
-                holdingsButton.addActionListener(f -> {
-                    BufferedImage holdingsMap = null;
-                    try {
-                        holdingsMap = ImageIO.read(new File(mapGenerator.holdingsMapPath));
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                    mapDisplay.changeRegionsOrProvincesImage(holdingsButton.isSelected() ? holdingsMap : null);
-                    if (holdingsButton.isSelected()) {
-                        createTransparencyControl(holdingsButton, "Tax Income", mapDisplay);
-                    }
-                });
-                buttonGroup.add(holdingsButton);
 
-                radioButtonPanel.add(taxIncomeButton);
-                radioButtonPanel.add(holdingsButton);
 
-                box.add(radioButtonPanel);
-
-                dataImportWindow.add(box);
-
-                dataImportWindow.setVisible(true);
-                dataImportWindow.addWindowListener(new WindowAdapter() {
-                    @Override
-                    public void windowClosing(WindowEvent e) {
-                        dataImportWindow = null;
-                        // Check if the transparency frame is visible and close it
-                        if (transparencyFrame != null && transparencyFrame.isVisible() && (holdingsButton.isSelected() || taxIncomeButton.isSelected()) ) {
-                            transparencyFrame.dispose();
-                        }
-                    }
-
-                });
             }
         });
+
+        buttonGroup.add(provincesButton);
+        buttonGroup.add(regionsButton);
 
         buttonPanel.add(newWindowButton);
 
@@ -268,12 +217,32 @@ public class EPViewerGUI {
         zoomSlider.addChangeListener(e -> {
             // Get the visible rectangle
             Rectangle visibleRect = scrollPane.getViewport().getViewRect();
-            // Calculate the center
-            Point viewCenter = new Point(visibleRect.x + visibleRect.width / 2, visibleRect.y + visibleRect.height / 2);
-            mapDisplay.zoomCenter = viewCenter;
+
+            // Calculate the center point of the visible rectangle
+            int centerX = visibleRect.x + visibleRect.width / 2;
+            int centerY = visibleRect.y + visibleRect.height / 2;
+
+            // Convert the center point to the screen's coordinate system
+            Point screenCenter = new Point(centerX, centerY);
+            SwingUtilities.convertPointToScreen(screenCenter, scrollPane);
+
+            // Update the zoomCenter and scale in the mapDisplay
+            mapDisplay.zoomCenter = screenCenter;
             mapDisplay.scale = zoomSlider.getValue() / 100.0;
+
+            // Update the preferred size of mapDisplay
+            int w = (int)(mapDisplay.baseImage.getWidth() * mapDisplay.scale);
+            int h = (int)(mapDisplay.baseImage.getHeight() * mapDisplay.scale);
+            mapDisplay.setPreferredSize(new Dimension(w, h));
+
+            // Notify the JScrollPane of the changes
+            scrollPane.revalidate();
+            scrollPane.repaint();
+
             mapDisplay.repaint();
         });
+
+
 
 
         bottomPanel.add(zoomPanel, BorderLayout.WEST);
@@ -289,8 +258,61 @@ public class EPViewerGUI {
 
         bottomPanel.setPreferredSize(new Dimension(frame.getWidth(), minBottomPanelHeight));
 
+        JPanel mapModesPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        mapModesPanel.add(provincesButton);
+        mapModesPanel.add(regionsButton);
+        mapModesPanel.add(holdingsButton);
+        mapModesPanel.add(taxIncomeButton);
+        mapModesPanel.setVisible(false);
+
+        holdingsButton.addActionListener(e -> {
+            BufferedImage holdingsImage = null;
+            try {
+                holdingsImage = ImageIO.read(new File(mapGenerator.holdingsMapPath));
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            mapDisplay.changeRegionsOrProvincesImage(holdingsButton.isSelected() ? holdingsImage : null);
+            if (holdingsButton.isSelected()) {
+                buttonGroup.createTransparencyControl(holdingsButton, "Holdings", mapDisplay);
+            }
+        });
+
+
+        bottomPanel.add(mapModesPanel, BorderLayout.CENTER);
+        bottomPanel.add(zoomPanel, BorderLayout.WEST);
+
+        JButton mapModesButton = new JButton("Map Modes");
+        buttonPanel.add(mapModesButton);
+
+        bottomPanel.setPreferredSize(new Dimension(frame.getWidth(), minBottomPanelHeight));
+
         expandButton.addActionListener(e -> {
             zoomPanel.setVisible(true);
+            mapModesPanel.setVisible(false);
+            int startHeight = bottomPanel.getHeight();
+            int targetHeight = startHeight == minBottomPanelHeight ? maxBottomPanelHeight : minBottomPanelHeight;
+
+            Timer timer = new Timer(2, null);
+            timer.setRepeats(true);
+            timer.addActionListener(evt -> {
+                int newHeight = bottomPanel.getHeight() + (targetHeight - startHeight) / 10;
+                if ((startHeight < targetHeight && newHeight >= targetHeight) || (startHeight > targetHeight && newHeight <= targetHeight)) {
+                    newHeight = targetHeight;
+                    timer.stop();
+                }
+                bottomPanel.setPreferredSize(new Dimension(frame.getWidth(), newHeight));
+                bottomPanel.revalidate();
+            });
+            timer.start();
+        });
+
+
+
+        mapModesButton.addActionListener(e -> {
+            mapModesPanel.setVisible(!mapModesPanel.isVisible());
+            zoomPanel.setVisible(false);
+
             int startHeight = bottomPanel.getHeight();
             int targetHeight = startHeight == minBottomPanelHeight ? maxBottomPanelHeight : minBottomPanelHeight;
 
@@ -322,40 +344,58 @@ public class EPViewerGUI {
         frame.setVisible(true);
     }
 
-    private static void createTransparencyControl(JRadioButton button, String title, displayHandler.mapDisplay mapDisplay) {
-        if (transparencyFrame == null) {
-            transparencyFrame = new JFrame();
-            transparencyFrame.setSize(200, 100);
-        }
-        JLabel titleLabel = new JLabel(title + " Transparency");
-        titleLabel.setHorizontalAlignment(JLabel.CENTER);
-        JSlider transparencySlider = new JSlider(JSlider.HORIZONTAL, 0, 100, (int) (100* displayHandler.opacity));
-        transparencySlider.setMajorTickSpacing(10);
-        transparencySlider.setPaintTicks(true);
-        transparencySlider.addChangeListener(e -> {
-            displayHandler.opacity = transparencySlider.getValue() / 100.0f;
-            mapDisplay.repaint();  // This line is added to repaint the imagePanel when the slider changes
-        });
-        transparencyFrame.getContentPane().removeAll();
-        transparencyFrame.setLayout(new BorderLayout());
-        transparencyFrame.add(titleLabel, BorderLayout.NORTH);
-        transparencyFrame.add(transparencySlider, BorderLayout.CENTER);
-        Point location = button.getLocationOnScreen();
-        transparencyFrame.setLocation(location.x, location.y + 50);
-        transparencyFrame.setSize(200, 100);
-        transparencyFrame.setVisible(true);
-        transparencyFrame.setAlwaysOnTop(true);
-    }
-
     static class NoneSelectedButtonGroup extends ButtonGroup {
+        private Map<JRadioButton, JFrame> buttonFrames = new HashMap<>();
+        private Map<JRadioButton, JSlider> buttonSliders = new HashMap<>();
+
         @Override
         public void setSelected(ButtonModel model, boolean selected) {
             if (selected) {
+                closeAllSliders();
                 super.setSelected(model, selected);
             } else {
+                closeAllSliders();
                 clearSelection();
-                transparencyFrame.dispose();
             }
+        }
+
+        private void closeAllSliders() {
+            for (JFrame transparencyFrame : buttonFrames.values()) {
+                if (transparencyFrame != null) {
+                    transparencyFrame.dispose();
+                }
+            }
+            buttonFrames.clear();
+            buttonSliders.clear();
+        }
+
+        public void createTransparencyControl(JRadioButton button, String title, displayHandler.mapDisplay mapDisplay) {
+            JFrame transparencyFrame = new JFrame();
+            transparencyFrame.setSize(200, 100);
+            buttonFrames.put(button, transparencyFrame);
+
+            JSlider transparencySlider = new JSlider(JSlider.HORIZONTAL, 0, 100, (int) (100 * displayHandler.opacity));
+            transparencySlider.setMajorTickSpacing(10);
+            transparencySlider.setPaintTicks(true);
+            transparencySlider.addChangeListener(e -> {
+                displayHandler.opacity = transparencySlider.getValue() / 100.0f;
+                mapDisplay.repaint();
+            });
+            buttonSliders.put(button, transparencySlider);
+            transparencyFrame.add(transparencySlider, BorderLayout.CENTER);
+
+            JLabel titleLabel = new JLabel(title + " Transparency");
+            titleLabel.setHorizontalAlignment(JLabel.CENTER);
+
+            transparencyFrame.getContentPane().removeAll();
+            transparencyFrame.setLayout(new BorderLayout());
+            transparencyFrame.add(titleLabel, BorderLayout.NORTH);
+            transparencyFrame.add(transparencySlider, BorderLayout.CENTER);
+            Point location = button.getLocationOnScreen();
+            transparencyFrame.setLocation(location.x, location.y + 50);
+            transparencyFrame.setSize(200, 100);
+            transparencyFrame.setVisible(true);
+            transparencyFrame.setAlwaysOnTop(true);
         }
     }
 

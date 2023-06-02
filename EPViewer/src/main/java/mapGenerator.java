@@ -71,7 +71,7 @@ public class mapGenerator {
         for (int i = 1; i < csvData.size(); i++) {
             String[] row = csvData.get(i);
 
-            // Assuming the color hex string is in column 5 (Hex Id)
+            // Assuming the color hex string is in column 5 (Hex ID)
             String hexString = row[5];
             String formattedHexString = String.format("#%6s", hexString).replace(' ', '0');
             Color color = Color.decode(formattedHexString);

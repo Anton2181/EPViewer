@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class recapBrowser {
-    private static Map<Integer, String> yearToRecapUrl = new HashMap<Integer, String>() {{
+    private static final Map<Integer, String> yearToRecapUrl = new HashMap<Integer, String>() {{
         put(1500, "https://old.reddit.com/r/empirepowers/comments/10jrlp3/meta_season_xi_recap_year_1500/");
         put(1501, "https://old.reddit.com/r/empirepowers/comments/10phc4y/meta_season_xi_recap_year_1501/");
         put(1502, "https://old.reddit.com/r/empirepowers/comments/10vlrcf/meta_season_xi_recap_year_1502/");
