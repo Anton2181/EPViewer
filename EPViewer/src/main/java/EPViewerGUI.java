@@ -1,6 +1,7 @@
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import javax.swing.*;
+import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -16,6 +17,7 @@ public class EPViewerGUI {
     private static JFrame transparencyFrame = null;
     private static JFrame dataImportWindow;
     public static boolean provinceDataLoaded=false;
+    public static JSlider zoomSlider; // Adding here
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -30,6 +32,7 @@ public class EPViewerGUI {
     }
 
     private static void createAndShowGUI() throws IOException {
+
         JFrame frame = new JFrame("Image Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -63,8 +66,8 @@ public class EPViewerGUI {
 
         displayHandler.mapDisplay mapDisplay = new displayHandler.mapDisplay(displayHandler.baseImage, displayHandler.overlayImages.get(19));
 
+        JScrollPane scrollPane = new JScrollPane(mapDisplay);
         JPanel controlsPanel = new JPanel(new BorderLayout());
-
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         NoneSelectedButtonGroup buttonGroup = new NoneSelectedButtonGroup();
@@ -233,6 +236,77 @@ public class EPViewerGUI {
         });
         buttonPanel.add(openBrowserButton);
 
+        // This will be the new bottom panel
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setLayout(new BorderLayout());
+
+        // This will be the new zoom slider panel
+        JPanel zoomPanel = new JPanel();
+        zoomPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+        zoomSlider = new JSlider(JSlider.HORIZONTAL, 25, 300, 100);
+        zoomSlider.setPreferredSize(new Dimension(200, 50));
+        zoomSlider.setMajorTickSpacing(25);
+        zoomSlider.setPaintTicks(true);
+        zoomSlider.setSnapToTicks(true);
+        zoomSlider.setPaintLabels(true);
+        Hashtable<Integer, JLabel> labelTableZoom = new Hashtable<>();
+        JLabel label25 = new JLabel("25%");
+        label25.setFont(new Font("Arial", Font.BOLD, 10));
+        labelTableZoom.put(25, label25);
+        JLabel label100 = new JLabel("100%");
+        label100.setFont(new Font("Arial", Font.BOLD, 10));
+        labelTableZoom.put(100, label100);
+        JLabel label300 = new JLabel("300%");
+        label300.setFont(new Font("Arial", Font.BOLD, 10));
+        labelTableZoom.put(300, label300);
+        zoomSlider.setLabelTable(labelTableZoom);
+        zoomPanel.setVisible(false);
+
+        zoomPanel.add(zoomSlider);
+
+        zoomSlider.addChangeListener(e -> {
+            // Get the visible rectangle
+            Rectangle visibleRect = scrollPane.getViewport().getViewRect();
+            // Calculate the center
+            Point viewCenter = new Point(visibleRect.x + visibleRect.width / 2, visibleRect.y + visibleRect.height / 2);
+            mapDisplay.zoomCenter = viewCenter;
+            mapDisplay.scale = zoomSlider.getValue() / 100.0;
+            mapDisplay.repaint();
+        });
+
+
+        bottomPanel.add(zoomPanel, BorderLayout.WEST);
+
+        // Create the button
+        ImageIcon icon = new ImageIcon("EPViewer/magnifying_glass_4-0.png");
+        JButton expandButton = new JButton(icon);
+        buttonPanel.add(expandButton);
+
+        // Initially set bottom panel height to minimum (only zoom slider visible)
+        int minBottomPanelHeight = 0;
+        int maxBottomPanelHeight = 50;  // Set the maximum height according to your needs
+
+        bottomPanel.setPreferredSize(new Dimension(frame.getWidth(), minBottomPanelHeight));
+
+        expandButton.addActionListener(e -> {
+            zoomPanel.setVisible(true);
+            int startHeight = bottomPanel.getHeight();
+            int targetHeight = startHeight == minBottomPanelHeight ? maxBottomPanelHeight : minBottomPanelHeight;
+
+            Timer timer = new Timer(2, null);
+            timer.setRepeats(true);
+            timer.addActionListener(evt -> {
+                int newHeight = bottomPanel.getHeight() + (targetHeight - startHeight) / 10;
+                if ((startHeight < targetHeight && newHeight >= targetHeight) || (startHeight > targetHeight && newHeight <= targetHeight)) {
+                    newHeight = targetHeight;
+                    timer.stop();
+                }
+                bottomPanel.setPreferredSize(new Dimension(frame.getWidth(), newHeight));
+                bottomPanel.revalidate();
+            });
+            timer.start();
+        });
 
 
         yearSlider.setBorder(new EmptyBorder(0, 0, 0, 50));
@@ -241,7 +315,8 @@ public class EPViewerGUI {
         controlsPanel.add(yearSlider, BorderLayout.EAST);
 
         frame.add(controlsPanel, BorderLayout.NORTH);
-        frame.add(new JScrollPane(mapDisplay), BorderLayout.CENTER);
+        frame.add(scrollPane, BorderLayout.CENTER);
+        frame.add(bottomPanel, BorderLayout.SOUTH);
 
         frame.setSize(1200, 800);
         frame.setVisible(true);

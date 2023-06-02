@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -19,6 +20,8 @@ public class displayHandler {
         HashMap<String, JFrame> holdingWindows = new HashMap<>();
         JScrollPane holdingListScrollPane;
         JFrame listWindow;
+        double scale = 1.0;
+        Point zoomCenter = new Point(0, 0);
 
         public mapDisplay(BufferedImage baseImage, BufferedImage overlayImage) {
             this.baseImage = baseImage;
@@ -27,7 +30,9 @@ public class displayHandler {
             addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    int color = baseImage.getRGB(e.getX(), e.getY());
+                    int mouseX = (int) ((e.getX() - zoomCenter.x) / scale + zoomCenter.x);
+                    int mouseY = (int) ((e.getY() - zoomCenter.y) / scale + zoomCenter.y);
+                    int color = baseImage.getRGB(mouseX, mouseY);
                     int blue = color & 0xff;
                     int green = (color & 0xff00) >> 8;
                     int red = (color & 0xff0000) >> 16;
@@ -39,8 +44,38 @@ public class displayHandler {
 
                     showMatchingData(hex, screenPoint);
                 }
+
+
             });
+
+            /*addMouseWheelListener(new MouseAdapter() {
+                @Override
+                public void mouseWheelMoved(MouseWheelEvent e) {
+                    int notches = e.getWheelRotation();
+                    if (notches < 0) {
+                        scale += 0.25;
+                    } else {
+                        scale -= 0.25;
+                    }
+
+                    // Ensure the scale is within the range [0.25, 3.0]
+                    if (scale < 0.25) {
+                        scale = 0.25;
+                    } else if (scale > 3.0) {
+                        scale = 3.0;
+                    }
+
+                    // Update zoom slider value
+                    EPViewerGUI.zoomSlider.setValue((int) (scale * 100));
+
+                    zoomCenter = e.getPoint();
+                    repaint();
+                }
+            });*/
+
+
         }
+
 
         public void changeOverlayImage(BufferedImage newOverlayImage) {
             this.overlayImage = newOverlayImage;
@@ -176,8 +211,17 @@ public class displayHandler {
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
             Graphics2D g2d = (Graphics2D) g.create();
+            g2d.translate(zoomCenter.x, zoomCenter.y);
+            g2d.scale(scale, scale);
+            g2d.translate(-zoomCenter.x, -zoomCenter.y);
+            if(scale>1)
+                g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+                        RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+            else
+                g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+                        RenderingHints.VALUE_INTERPOLATION_BILINEAR);
             g2d.drawImage(baseImage, 0, 0, null);
-            if(overlayImage != null) {
+            if (overlayImage != null) {
                 g2d.drawImage(overlayImage, 0, 0, null);
             }
             if (superOverlayImage != null) {
@@ -186,6 +230,5 @@ public class displayHandler {
             }
             g2d.dispose();
         }
-
     }
 }
