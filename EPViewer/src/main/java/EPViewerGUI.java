@@ -33,13 +33,13 @@ public class EPViewerGUI {
         JFrame frame = new JFrame("Image Viewer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        displayHandler.overlayImages.put(19, ImageIO.read(new File("map" + 19 + ".png")));
+        displayHandler.overlayImages.put(19, ImageIO.read(new File("maps/map" + 19 + ".png")));
 
         try {
-            displayHandler.baseImage = ImageIO.read(new File("input2.png"));
-            displayHandler.regionsImage = ImageIO.read(new File("regions.png"));
-            dataManager.csvData = new CSVReader(new InputStreamReader(new FileInputStream("input3.csv"), "UTF-8")).readAll();
-            dataManager.holdingData = new CSVReader(new InputStreamReader(new FileInputStream("input4.csv"), "UTF-8")).readAll();
+            displayHandler.baseImage = ImageIO.read(new File("maps/input2.png"));
+            displayHandler.regionsImage = ImageIO.read(new File("maps/regions.png"));
+            dataManager.csvData = new CSVReader(new InputStreamReader(new FileInputStream("data/input3.csv"), "UTF-8")).readAll();
+            dataManager.holdingData = new CSVReader(new InputStreamReader(new FileInputStream("data/input4.csv"), "UTF-8")).readAll();
         } catch (IOException | CsvException e) {
             e.printStackTrace();
             System.exit(1);
@@ -217,7 +217,7 @@ public class EPViewerGUI {
             BufferedImage image = displayHandler.overlayImages.get(year);
             if (image == null) {
                 try {
-                    image = ImageIO.read(new File("map" + year + ".png"));
+                    image = ImageIO.read(new File("maps/map" + year + ".png"));
                     displayHandler.overlayImages.put(year, image);
                 } catch (IOException ex) {
                     ex.printStackTrace();

@@ -9,112 +9,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe03a732-319c-42d2-8914-4a5ae6bfec07" name="Changes" comment="Recap button added (initial)">
-      <change afterPath="$PROJECT_DIR$/../EPViewer.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/input1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/input2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/input3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/input4.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map19.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/map9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/out/artifacts/EPViewer_jar/EPViewer.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/regions.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/EPViewerGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/dataManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/displayHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/mapGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/recapBrowser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/EPViewerGUI$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/EPViewerGUI$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/EPViewerGUI$NoneSelectedButtonGroup.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/EPViewerGUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/dataManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/displayHandler$mapDisplay$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/displayHandler$mapDisplay$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/displayHandler$mapDisplay.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/displayHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/mapGenerator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/recapBrowser$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../EPViewer/target/classes/recapBrowser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ImagePixelColor_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../EPViewer/.idea/artifacts/EPViewer_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/map9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ImagePixelColor_jar/ImagePixelColor.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/regions.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ImagePixelColor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$ImagePanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$ImagePanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$ImagePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor$NoneSelectedButtonGroup.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ImagePixelColor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../input4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../input4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../map19.png" beforeDir="false" afterPath="$PROJECT_DIR$/../map19.png" afterDir="false" />
+    <list default="true" id="fe03a732-319c-42d2-8914-4a5ae6bfec07" name="Changes" comment="Major refactor">
+      <change beforePath="$PROJECT_DIR$/../EPViewer/input1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/input2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/input3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/input4.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/map9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/regions.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/src/main/java/EPViewerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EPViewer/src/main/java/EPViewerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EPViewer/target/classes/EPViewerGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EPViewer/target/classes/EPViewerGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../input1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../input2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../input3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../input4.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../map9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../regions.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685700661752</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Major refactor">
+      <created>1685710421619</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1685710421619</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -342,7 +296,9 @@
     <MESSAGE value="Holdings visualization added" />
     <MESSAGE value="Caching implemented" />
     <MESSAGE value="Recap button added (initial)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Recap button added (initial)" />
+    <MESSAGE value="Major refractor" />
+    <MESSAGE value="Major refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Major refactor" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
