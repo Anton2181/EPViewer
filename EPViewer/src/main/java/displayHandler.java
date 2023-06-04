@@ -10,6 +10,7 @@ public class displayHandler {
     public static float opacity = 1.0f;
     static BufferedImage baseImage;
     static BufferedImage regionsImage;
+    static BufferedImage riversImage;
     static LinkedHashMap<Integer, BufferedImage> overlayImages = new LinkedHashMap<>(25);
 
     static class mapDisplay extends JPanel {

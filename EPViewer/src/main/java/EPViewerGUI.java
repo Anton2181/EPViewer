@@ -36,6 +36,8 @@ public class EPViewerGUI {
         try {
             displayHandler.baseImage = ImageIO.read(new File("maps/input2.png"));
             displayHandler.regionsImage = ImageIO.read(new File("maps/regions.png"));
+            displayHandler.riversImage = ImageIO.read(new File("maps/rivers.png"));
+
             dataManager.csvData = new CSVReader(new InputStreamReader(new FileInputStream("data/input3.csv"), StandardCharsets.UTF_8)).readAll();
             dataManager.holdingData = new CSVReader(new InputStreamReader(new FileInputStream("data/input4.csv"), StandardCharsets.UTF_8)).readAll();
         } catch (IOException | CsvException e) {
@@ -107,6 +109,15 @@ public class EPViewerGUI {
 
         });
 
+        JRadioButton riversButton = new JRadioButton("Rivers");
+        riversButton.addActionListener(e -> {
+            mapDisplay.changeRegionsOrProvincesImage(riversButton.isSelected() ? displayHandler.riversImage : null);
+            if (riversButton.isSelected()) {
+                buttonGroup.createTransparencyControl(riversButton, "Rivers", mapDisplay);
+            }
+
+        });
+
         JButton newWindowButton = new JButton("Import Data");
         newWindowButton.addActionListener(e -> {
 
@@ -148,7 +159,7 @@ public class EPViewerGUI {
 
         buttonGroup.add(provincesButton);
         buttonGroup.add(regionsButton);
-
+        buttonGroup.add(riversButton);
         buttonPanel.add(newWindowButton);
 
         JSlider yearSlider = new JSlider(JSlider.HORIZONTAL, 0, 19, 19);
@@ -235,12 +246,23 @@ public class EPViewerGUI {
             int h = (int)(mapDisplay.baseImage.getHeight() * mapDisplay.scale);
             mapDisplay.setPreferredSize(new Dimension(w, h));
 
+            // Disable scrollbars if the zoom is not 100%
+            if (zoomSlider.getValue() != 100) {
+                scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+                scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+            } else {
+                // Enable scrollbars if the zoom is 100%
+                scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+                scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+            }
+
             // Notify the JScrollPane of the changes
             scrollPane.revalidate();
             scrollPane.repaint();
 
             mapDisplay.repaint();
         });
+
 
 
 
@@ -263,6 +285,7 @@ public class EPViewerGUI {
         mapModesPanel.add(regionsButton);
         mapModesPanel.add(holdingsButton);
         mapModesPanel.add(taxIncomeButton);
+        mapModesPanel.add(riversButton);
         mapModesPanel.setVisible(false);
 
         holdingsButton.addActionListener(e -> {
@@ -288,6 +311,7 @@ public class EPViewerGUI {
         bottomPanel.setPreferredSize(new Dimension(frame.getWidth(), minBottomPanelHeight));
 
         expandButton.addActionListener(e -> {
+            zoomSlider.setValue(100);
             zoomPanel.setVisible(true);
             mapModesPanel.setVisible(false);
             int startHeight = bottomPanel.getHeight();
@@ -310,8 +334,8 @@ public class EPViewerGUI {
 
 
         mapModesButton.addActionListener(e -> {
-            mapModesPanel.setVisible(!mapModesPanel.isVisible());
             zoomPanel.setVisible(false);
+            mapModesPanel.setVisible(true);
 
             int startHeight = bottomPanel.getHeight();
             int targetHeight = startHeight == minBottomPanelHeight ? maxBottomPanelHeight : minBottomPanelHeight;
